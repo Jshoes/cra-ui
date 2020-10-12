@@ -1,6 +1,7 @@
 import React from "react";
 import { Card, Form, Input, Button, Row, Col } from "antd";
 import "antd/dist/antd.css";
+
 const layout = {
   labelCol: { span: 8 },
   wrapperCol: { span: 16 },
@@ -8,7 +9,8 @@ const layout = {
 
 function App() {
   function onFinish(values: Object) {
-    console.log(values);
+    const event = new CustomEvent('sendMessage', { detail: values });
+    document.dispatchEvent(event);
   }
   return (
     <Row>
