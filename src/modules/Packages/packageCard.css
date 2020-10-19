@@ -1,0 +1,38 @@
+.package-item {
+  border: none;
+}
+
+.package-item .ant-card-body {
+  padding: 0;
+  margin: 0 10px;
+}
+
+.package-intro-container {
+  display: flex;
+  align-items: flex-start;
+}
+
+.package-intro-container img {
+  margin-right: 15px;
+  flex-basis: 100px;
+}
+
+.package-intro-content {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+.package-title,
+.package-intro-container p {
+  margin: 0;
+}
+
+.package-intro {
+  display: flex;
+  align-items: center;
+}
+
+.package-intro .ant-divider.ant-divider-vertical {
+  margin: 0 20px;
+}
