@@ -1,41 +1,14 @@
 import React from "react";
-import { Card, Form, Input, Button, Row, Col } from "antd";
-import "antd/dist/antd.css";
-const layout = {
-  labelCol: { span: 8 },
-  wrapperCol: { span: 16 },
-};
+import { HashRouter as Router, Route, Switch } from "react-router-dom";
+import ModuleCreator from "./modules/moduleCreator";
 
 function App() {
-  function onFinish(values: Object) {
-    console.log(values);
-  }
   return (
-    <Row>
-      <Col span={12} offset={6}>
-        <Card title="创建模块" bordered={false}>
-          <Form onFinish={onFinish} style={{textAlign:'center'}}>
-            <Form.Item
-              label="模版名称"
-              name="modelname"
-              initialValue="modeltest"
-            >
-              <Input />
-            </Form.Item>
-            <Form.Item
-              label="模版路径"
-              name="modelpath"
-              initialValue="/aaa/bbb/ccc"
-            >
-              <Input />
-            </Form.Item>
-            <Button type="primary" htmlType="submit">
-              提交
-            </Button>
-          </Form>
-        </Card>
-      </Col>
-    </Row>
+    <Router>
+      <Switch>
+        <Route path="/modulecreate" component={ModuleCreator} />Î
+      </Switch>
+    </Router>
   );
 }
 
