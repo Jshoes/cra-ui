@@ -36,3 +36,8 @@
 .package-intro .ant-divider.ant-divider-vertical {
   margin: 0 20px;
 }
+
+.package-options button {
+  padding: 0;
+  margin-right: 30px;
+}

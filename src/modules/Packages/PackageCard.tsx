@@ -23,7 +23,7 @@ export default class PackageCard extends Component {
             <span>download</span>
           </div>
           <p>desc</p>
-          <ButtonGroups handleClick={this.handlerMenu.bind(this)}>
+          <ButtonGroups className="package-options" handleClick={this.handlerMenu.bind(this)}>
             <Button
               actionkey='disable'
               type='link'>
