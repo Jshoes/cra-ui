@@ -1,5 +1,5 @@
 import React from "react";
-import { HashRouter as Router, Route, Switch } from "react-router-dom";
+import { HashRouter as Router, Route, Switch ,Redirect} from "react-router-dom";
 import ModuleCreator from "./modules/moduleCreator";
 import Packages from './modules/Packages';
 
@@ -8,9 +8,9 @@ function App() {
   return (
     <Router>
       <Switch>
-        <Route exact path="/" component={ModuleCreator} />
         <Route exact path="/modulecreate" component={ModuleCreator} />
         <Route exact path="/packages" component={Packages} />
+        <Redirect path="/" to="modulecreate"/>
       </Switch>
     </Router>
   );
