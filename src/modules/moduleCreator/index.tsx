@@ -8,7 +8,7 @@ import {tableDataConfFn,listDataConfFn,buttonDataConf} from './tableConfig'
 function App() {
   const [form] = Form.useForm()
   function onFinish(values: Object) {
-    console.log(values);
+    console.log(JSON.stringify(values, null, 2));
     const event = new CustomEvent('sendMessage', { detail: values });
     document.dispatchEvent(event);
   }
@@ -16,7 +16,7 @@ function App() {
   const listDataConf = listDataConfFn(form)
   return (
     <Row>
-      <Col span={12} offset={6}>
+      <Col span={18} offset={3}>
         <Card title="创建模块" bordered={false}>
           <Form onFinish={onFinish} form={form} style={{textAlign:'center'}}>
             <Form.Item
@@ -33,10 +33,10 @@ function App() {
             >
               <Input />
             </Form.Item>
-            <Form.Item label="自定义列表" name="tabelData" initialValue={[]}>
+            <Form.Item label="自定义列表" name="tableData" initialValue={[]}>
               <EditTable {...tableDataConf} onChange={(data: any)=>form.setFieldsValue({
-                tabelData:data
-              })} data={form.getFieldValue('tabelData')}/>
+                tableData:data
+              })} data={form.getFieldValue('tableData')}/>
             </Form.Item>
             <Form.Item label="列表查询" name="listData" initialValue={[]}>
               <EditTable {...listDataConf} onChange={(data: any)=>form.setFieldsValue({

@@ -43,10 +43,18 @@
         document.addEventListener('sendMessage', function (e) {
           const value = e.detail
 
-          console.log('e:', value)
+          console.log('e:', JSON.stringify(value, null, 2))
+          if (!window.vscode) {
+            window.vscode = acquireVsCodeApi();
+          }
+          const vscode = window.vscode
+          if (value.command && value.text) {
+            vscode.postMessage(value)
+          } else {
+            vscode.postMessage({ command: 'alert', text: value})
 
-          const vscode = acquireVsCodeApi();
-          vscode.postMessage({ command: 'alert', text: value})
+          }
+
         });
     </script>
     {@&scripts@}
