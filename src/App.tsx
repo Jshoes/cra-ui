@@ -27,6 +27,12 @@ function addOwnListener() {
               window.location.hash = message.text
             }
             break;
+        case 'installStatus':
+            console.log('==installStatus==', message.text)
+            break;
+        default:
+          console.log('unknow command', message.command, ', data is', message.text);
+          return;
     }
 });
 }

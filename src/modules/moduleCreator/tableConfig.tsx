@@ -50,12 +50,12 @@ export const tableDataConfFn = (formRef: any) => {
         editComponent: () => <InputNumber {...placeholder('input')}/>,
       },
       {
-        name: "isEillipsis",
+        name: "ellipsis",
         title: "是否截字",
-        dataIndex: "isEillipsis",
+        dataIndex: "ellipsis",
         editingStatus: false,
         renderCol: (text: any, row: any, instance: any) => (text ? "是" : "否"),
-        key: "isEillipsis",
+        key: "ellipsis",
         editComponent: (text: any) => <Checkbox defaultChecked={text} />,
       },
       // {
