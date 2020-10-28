@@ -1,3 +1,17 @@
+export const dataType = [
+  {
+    label: "字符串",
+    value: "string",
+  },
+  {
+    label: "数字",
+    value: "number",
+  },
+  {
+    label: "布尔",
+    value: "boolean",
+  },
+];
 export const selectType = [
   {
     label: "输入框",

@@ -1,6 +1,6 @@
 import React from "react";
 import { InputNumber, Input, Button, Select, Checkbox } from "antd";
-import { selectType, buttonType ,placeholder} from "./dic";
+import { selectType, buttonType ,placeholder, dataType} from "./dic";
 import { dicts, renderSelectOption } from "./utils";
 const ButtonGroup = Button.Group;
 
@@ -41,6 +41,15 @@ export const tableDataConfFn = (formRef: any) => {
         editComponent: () => <Input {...placeholder('input')}/>,
       },
       {
+        name: "title",
+        title: "标题",
+        dataIndex: "title",
+        editingStatus: false,
+        renderCol: (text: any, row: any, instance: any) => text,
+        key: "title",
+        editComponent: () => <Input {...placeholder('input')}/>,
+      },
+      {
         name: "width",
         title: "列宽",
         dataIndex: "width",
@@ -48,6 +57,18 @@ export const tableDataConfFn = (formRef: any) => {
         renderCol: (text: any, row: any, instance: any) => text,
         key: "width",
         editComponent: () => <InputNumber {...placeholder('input')}/>,
+      },
+      {
+        name: "dataType",
+        title: "字段类型",
+        dataIndex: "dataType",
+        editingStatus: false,
+        renderCol: (text: any, row: any, instance: any) =>
+          dicts(dataType, text),
+        key: "dataType",
+        editComponent: () => (
+          <Select style={{ width: 120 }} defaultValue='string' {...placeholder('select')}>{renderSelectOption(dataType)}</Select>
+        ),
       },
       {
         name: "ellipsis",

@@ -26,13 +26,6 @@ function App() {
             >
               <Input />
             </Form.Item>
-            <Form.Item
-              label="模版路径"
-              name="modelpath"
-              initialValue="/aaa/bbb/ccc"
-            >
-              <Input />
-            </Form.Item>
             <Form.Item label="自定义列表" name="tableData" initialValue={[]}>
               <EditTable {...tableDataConf} onChange={(data: any)=>form.setFieldsValue({
                 tableData:data
