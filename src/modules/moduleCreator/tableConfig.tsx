@@ -41,15 +41,6 @@ export const tableDataConfFn = (formRef: any) => {
         editComponent: () => <Input {...placeholder('input')}/>,
       },
       {
-        name: "title",
-        title: "标题",
-        dataIndex: "title",
-        editingStatus: false,
-        renderCol: (text: any, row: any, instance: any) => text,
-        key: "title",
-        editComponent: () => <Input {...placeholder('input')}/>,
-      },
-      {
         name: "width",
         title: "列宽",
         dataIndex: "width",
@@ -180,7 +171,7 @@ export const buttonDataConf = {
   columns: [
     {
       name: "name",
-      title: "按钮名称",
+      title: "name",
       dataIndex: "name",
       editingStatus: false,
       renderCol: (text: any, row: any, instance: any) => text,
