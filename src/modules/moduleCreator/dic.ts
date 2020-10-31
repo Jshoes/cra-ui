@@ -1,14 +1,28 @@
+export const dataType = [
+  {
+    label: "string",
+    value: "string",
+  },
+  {
+    label: "number",
+    value: "number",
+  },
+  {
+    label: "boolean",
+    value: "boolean",
+  },
+];
 export const selectType = [
   {
-    label: "输入框",
+    label: "Input",
     value: "input",
   },
   {
-    label: "下拉框",
+    label: "Select",
     value: "select",
   },
   {
-    label: "日期选择",
+    label: "Datepicker",
     value: "datepicker",
   },
 ];
@@ -25,10 +39,6 @@ export const buttonType = [
   {
     label: "dashed",
     value: "dashed",
-  },
-  {
-    label: "text",
-    value: "text",
   },
   {
     label: "link",

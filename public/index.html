@@ -39,5 +39,25 @@
       To begin the development, run `npm start` or `yarn start`.
       To create a production bundle, use `npm run build` or `yarn build`.
     -->
+    <script>
+        document.addEventListener('sendMessage', function (e) {
+          const value = e.detail
+
+          console.log('e:', JSON.stringify(value, null, 2))
+          if (!window.vscode) {
+            window.vscode = acquireVsCodeApi();
+          }
+          const vscode = window.vscode
+          if (value.command && value.text) {
+            vscode.postMessage(value)
+          } else {
+            vscode.postMessage({ command: 'alert', text: value})
+
+          }
+
+        });
+    </script>
+    {@&scripts@}
+    {@&styles@}
   </body>
 </html>

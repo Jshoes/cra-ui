@@ -6,9 +6,18 @@ import './packageCard.css';
 const TabPane = Tabs.TabPane;
 const Button = ButtonGroups.CustomButton;
 
-export default class PackageCard extends Component {
-  handlerMenu() {
+type commandType = 'install' | 'uninstall';
 
+export default class PackageCard extends Component {
+  handlerMenu(data:any) {
+
+    // 发送指定命令消息给vscode插件
+    this.sendMessage(data, 'install')
+  }
+  sendMessage(data: Object, command:commandType) {
+    console.log(JSON.stringify(data, null, 2));
+    const event = new CustomEvent('sendMessage', { detail: { command, text: data } });
+    document.dispatchEvent(event);
   }
 
   renderIntro() {

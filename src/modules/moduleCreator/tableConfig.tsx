@@ -1,6 +1,6 @@
 import React from "react";
 import { InputNumber, Input, Button, Select, Checkbox } from "antd";
-import { selectType, buttonType ,placeholder} from "./dic";
+import { selectType, buttonType ,placeholder, dataType} from "./dic";
 import { dicts, renderSelectOption } from "./utils";
 const ButtonGroup = Button.Group;
 
@@ -50,12 +50,24 @@ export const tableDataConfFn = (formRef: any) => {
         editComponent: () => <InputNumber {...placeholder('input')}/>,
       },
       {
-        name: "isEillipsis",
+        name: "dataType",
+        title: "字段类型",
+        dataIndex: "dataType",
+        editingStatus: false,
+        renderCol: (text: any, row: any, instance: any) =>
+          dicts(dataType, text),
+        key: "dataType",
+        editComponent: () => (
+          <Select style={{ width: 120 }} defaultValue='string' {...placeholder('select')}>{renderSelectOption(dataType)}</Select>
+        ),
+      },
+      {
+        name: "ellipsis",
         title: "是否截字",
-        dataIndex: "isEillipsis",
+        dataIndex: "ellipsis",
         editingStatus: false,
         renderCol: (text: any, row: any, instance: any) => (text ? "是" : "否"),
-        key: "isEillipsis",
+        key: "ellipsis",
         editComponent: (text: any) => <Checkbox defaultChecked={text} />,
       },
       // {
@@ -159,7 +171,7 @@ export const buttonDataConf = {
   columns: [
     {
       name: "name",
-      title: "按钮名称",
+      title: "name",
       dataIndex: "name",
       editingStatus: false,
       renderCol: (text: any, row: any, instance: any) => text,
