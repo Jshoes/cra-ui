@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Row, Col, Card, Tabs, Divider} from 'antd';
+import { Row, Card, Tabs, Divider} from 'antd';
 import {ButtonGroups} from '@mcfed/components';
 import './packageCard.css';
 
