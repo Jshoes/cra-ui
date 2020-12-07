@@ -191,6 +191,9 @@ export const buttonDataConf = {
       editingStatus: false,
       renderCol: (text: any, row: any, instance: any) => text,
       key: "type",
+      editConfig:{
+        initialValue:'default'
+      },
       editComponent: () => (
         <Select style={{ width: 120 }} defaultValue='default' {...placeholder('select')}>
           {renderSelectOption(buttonType)}
