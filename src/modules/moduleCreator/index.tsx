@@ -5,12 +5,27 @@ import "antd/dist/antd.css";
 import {tableDataConfFn,listDataConfFn,buttonDataConf} from './tableConfig'
 
 
+const layout = {
+  labelCol: { span: 3 },
+  wrapperCol: { span: 21 },
+};
+
 function App() {
   const [form] = Form.useForm()
   function onFinish(values: Object) {
-    console.log(JSON.stringify(values, null, 2));
+    // console.log(JSON.stringify(values, null, 2));
     const event = new CustomEvent('sendMessage', { detail: values });
     document.dispatchEvent(event);
+  }
+  function handleChangeModelname(e:any){
+    const modelName = e.target.value
+    const prefix = form.getFieldValue('api_prefix')
+
+    if(prefix === undefined || prefix === ''){
+      form.setFieldsValue({
+        api_prefix:modelName
+      })
+    }
   }
   const tableDataConf = tableDataConfFn(form)
   const listDataConf = listDataConfFn(form)
@@ -18,11 +33,17 @@ function App() {
     <Row>
       <Col span={18} offset={3}>
         <Card title="创建模块" bordered={false}>
-          <Form onFinish={onFinish} form={form} style={{textAlign:'center'}}>
+          <Form {...layout} onFinish={onFinish} form={form} style={{textAlign:'center'}}>
             <Form.Item
               label="模版名称"
               name="modelname"
               initialValue="modeltest"
+            >
+              <Input onChange={(e)=>handleChangeModelname(e)}/>
+            </Form.Item>
+            <Form.Item
+              label="模块请求前缀"
+              name="api_prefix"
             >
               <Input />
             </Form.Item>
