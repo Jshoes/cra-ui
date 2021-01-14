@@ -57,6 +57,9 @@ export const tableDataConfFn = (formRef: any) => {
         renderCol: (text: any, row: any, instance: any) =>
           dicts(dataType, text),
         key: "dataType",
+        editConfig:{
+          initialValue:'string'
+        },
         editComponent: () => (
           <Select style={{ width: 120 }} defaultValue='string' {...placeholder('select')}>{renderSelectOption(dataType)}</Select>
         ),
@@ -131,6 +134,9 @@ export const listDataConfFn = (formRef: any) => ({
       renderCol: (text: any, row: any, instance: any) =>
         dicts(selectType, text),
       key: "type",
+      editConfig:{
+        initialValue:'input'
+      },
       editComponent: () => (
         <Select style={{ width: 120 }} defaultValue='input' {...placeholder('select')}>{renderSelectOption(selectType)}</Select>
       ),
@@ -185,6 +191,9 @@ export const buttonDataConf = {
       editingStatus: false,
       renderCol: (text: any, row: any, instance: any) => text,
       key: "type",
+      editConfig:{
+        initialValue:'default'
+      },
       editComponent: () => (
         <Select style={{ width: 120 }} defaultValue='default' {...placeholder('select')}>
           {renderSelectOption(buttonType)}
