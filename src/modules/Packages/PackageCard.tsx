@@ -26,7 +26,7 @@ export default class PackageCard extends Component<IPackageCardProps, {}> {
 
   renderIntro() {
     const {data} = this.props;
-    const {name} = data;
+    const {name, description} = data;
     return (
       <Row className="package-intro-container">
         <img src={'http://nexus.mchz.com.cn:4873/-/static/93df1ce974e744e7d98f5d842da74ba0.svg'} alt="" />
@@ -37,7 +37,7 @@ export default class PackageCard extends Component<IPackageCardProps, {}> {
             <Divider type="vertical" />
             <span>download</span>
           </div>
-          <p>desc</p>
+          <p>{description}</p>
           {/* @ts-ignore */}
           <ButtonGroups className="package-options" handleClick={this.handlerMenu.bind(this, data)}>
             <Button

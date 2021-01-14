@@ -48,4 +48,21 @@
 .package-options button {
   padding: 0;
   margin-right: 30px;
+  color: #269EEA;
+}
+
+.package-item .ant-tabs-nav {
+  color: white;
+}
+
+.package-item .ant-tabs-tab:hover {
+  color: #269EEA;
+}
+
+.package-item .ant-tabs-tab.ant-tabs-tab-active .ant-tabs-tab-btn {
+  color: #269EEA;
+}
+
+.package-item .ant-tabs-ink-bar {
+  background-color: #269EEA;
 }
