@@ -1,4 +1,6 @@
 .package-item {
+  background-color: #212C30;
+  color: white;
   border: none;
 }
 
@@ -10,6 +12,7 @@
 .package-intro-container {
   display: flex;
   align-items: flex-start;
+  padding-top: 10px;
 }
 
 .package-intro-container img {
@@ -26,6 +29,11 @@
 .package-title,
 .package-intro-container p {
   margin: 0;
+}
+
+.package-title {
+  font-size: 28px;
+  color: white;
 }
 
 .package-intro {

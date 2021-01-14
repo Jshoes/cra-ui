@@ -8,11 +8,15 @@ const Button = ButtonGroups.CustomButton;
 
 type commandType = 'install' | 'uninstall';
 
-export default class PackageCard extends Component {
-  handlerMenu(data:any) {
+interface IPackageCardProps {
+  data?: any
+}
+
+export default class PackageCard extends Component<IPackageCardProps, {}> {
+  handlerMenu(data:any, key: any) {
 
     // 发送指定命令消息给vscode插件
-    this.sendMessage(data, 'install')
+    this.sendMessage(data, key)
   }
   sendMessage(data: Object, command:commandType) {
     console.log(JSON.stringify(data, null, 2));
@@ -21,35 +25,38 @@ export default class PackageCard extends Component {
   }
 
   renderIntro() {
+    const {data} = this.props;
+    const {name} = data;
     return (
       <Row className="package-intro-container">
         <img src={'http://nexus.mchz.com.cn:4873/-/static/93df1ce974e744e7d98f5d842da74ba0.svg'} alt="" />
         <div className="package-intro-content">
-          <h2 className="package-title">@mcfed/core</h2>
+          <h2 className="package-title">{name}</h2>
           <div className="package-intro">
             <span>author</span>
             <Divider type="vertical" />
             <span>download</span>
           </div>
           <p>desc</p>
-          <ButtonGroups className="package-options" handleClick={this.handlerMenu.bind(this)}>
+          {/* @ts-ignore */}
+          <ButtonGroups className="package-options" handleClick={this.handlerMenu.bind(this, data)}>
             <Button
-              actionkey='disable'
+              actionkey='install'
               type='link'>
               install
             </Button>
             <Button
-              actionkey='disable'
+              actionkey='unstall'
               type='link'>
               uninstall
             </Button>
             <Button
-              actionkey='disable'
+              actionkey='npm'
               type='link'>
               npm
             </Button>
             <Button
-              actionkey='disable'
+              actionkey='github'
               type='link'>
               github
             </Button>

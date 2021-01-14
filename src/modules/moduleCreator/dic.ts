@@ -24,7 +24,7 @@ export const selectType = [
   {
     label: "Datepicker",
     value: "datepicker",
-  },
+  }
 ];
 
 export const buttonType = [
