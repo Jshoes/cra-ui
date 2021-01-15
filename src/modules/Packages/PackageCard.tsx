@@ -16,7 +16,7 @@ export default class PackageCard extends Component<IPackageCardProps, {}> {
   handlerMenu(data:any, key: any) {
 
     // 发送指定命令消息给vscode插件
-    this.sendMessage(data, key)
+    this.sendMessage(`${data.name}@latest`, key)
   }
   sendMessage(data: Object, command:commandType) {
     console.log(JSON.stringify(data, null, 2));
@@ -26,16 +26,18 @@ export default class PackageCard extends Component<IPackageCardProps, {}> {
 
   renderIntro() {
     const {data} = this.props;
-    const {name, description} = data;
+    const {name, description, author, version} = data;
     return (
       <Row className="package-intro-container">
         <img src={'http://nexus.mchz.com.cn:4873/-/static/93df1ce974e744e7d98f5d842da74ba0.svg'} alt="" />
         <div className="package-intro-content">
           <h2 className="package-title">{name}</h2>
           <div className="package-intro">
-            <span>author</span>
+            <span>{author.name}</span>
             <Divider type="vertical" />
             <span>download</span>
+            <Divider type="vertical" />
+            <span>v{version}</span>
           </div>
           <p>{description}</p>
           {/* @ts-ignore */}

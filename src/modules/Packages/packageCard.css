@@ -13,6 +13,7 @@
   display: flex;
   align-items: flex-start;
   padding-top: 10px;
+  flex-wrap: nowrap;
 }
 
 .package-intro-container img {
@@ -43,6 +44,7 @@
 
 .package-intro .ant-divider.ant-divider-vertical {
   margin: 0 20px;
+  border-left: 1px solid #686A6B;
 }
 
 .package-options button {
